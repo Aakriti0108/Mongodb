@@ -1,0 +1,28 @@
+const getDb = require('../util/database').getDb;
+
+class Product {
+  constructor(title,priice,description,imageUrl)
+  {
+    this.title = title;
+    this.description = description;
+    this.price =price;
+    this.imageUrl = imageUrl;
+  }
+ 
+
+  save()
+  {
+     const db = getDb();
+     db.collection('products')
+     .insertOne(this)
+     .then(result =>{
+      console.log(result)
+     })
+     .catch(err=>{
+      console.log(err)
+     })
+  }
+}
+
+
+module.exports = Product;
